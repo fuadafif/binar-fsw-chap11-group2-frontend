@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { playedGames } from "../features/authSlice";
 import { useState } from "react";
 import { Button, Modal, ModalBody } from "reactstrap";
+import Image from "next/image";
+import Link from "next/link";
 
 function Home() {
   const dispatch = useDispatch();
@@ -23,12 +25,12 @@ function Home() {
     setModal(!modal);
     setRandomScoreWin(randomScore(1, 20));
     setRandomScoreLost(randomScore(1, 20));
-  }
+  };
 
   return (
     <>
       <HomeNav />
-      <Carousel />
+      {/* <Carousel /> */}
       <div className="text-center">
         <h1 className="m-3">TOP GAMES</h1>
         <div className="m-4">
@@ -47,10 +49,12 @@ function Home() {
       <div className={style["container-fluid"]}>
         {/* 1 */}
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/rock-paper-scissors.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="rock paper scissor"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Rock Paper Scissor</h5>
@@ -65,23 +69,26 @@ function Home() {
               <br />
             </p>
             <PlayedGames />
-            <a
-              href="/rock-paper-scissors"
-              class={`btn btn-primary ${style.button}`}
-              onClick={() => dispatch(playedGames())}
-            >
-              Play Now
-            </a>
+            <Link href="/rock-paper-scissors">
+              <a
+                className={`btn btn-primary ${style.button}`}
+                onClick={() => dispatch(playedGames())}
+              >
+                Play Now
+              </a>
+            </Link>
           </div>
         </div>
 
         {/* 2 */}
 
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/snake-game.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body  d-flex flex-column">
             <h5 className="card-title">Snake</h5>
@@ -92,17 +99,21 @@ function Home() {
               time the snake eats a piece of food, its tail grows longer, making
               the game increasingly difficult.
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>Play Now</a>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
+              Play Now
+            </a>
           </div>
         </div>
 
         {/* 3 */}
 
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/chess.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Chess</h5>
@@ -110,19 +121,23 @@ function Home() {
               Chess is one of the oldest and most popular board games. It is
               played by two opponents on a checkered board with specially
               designed pieces of contrasting colours, commonly white and black.
-              The objective of the game is to capture the opponent's king.
+              The objective of the game is to capture the opponent&apos;s king.
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>Play Now</a>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
+              Play Now
+            </a>
           </div>
         </div>
 
         {/* 4 */}
 
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/solitaire.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Solitaire</h5>
@@ -133,7 +148,7 @@ function Home() {
               <br />
               <br />
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
               Play Now
             </a>
           </div>
@@ -141,21 +156,23 @@ function Home() {
 
         {/* 5 */}
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/ctr.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Crash Team Racing</h5>
             <p className="card-text">
-              The game's story focuses on the efforts of Crash Bandicoot, Doctor
+              The game&apos;s story focuses on the efforts of Crash Bandicoot, Doctor
               Neo Cortex, who must race against the egomaniacal Nitros Oxide to
               save the Earth from destruction.
               <br />
               <br />
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
               Play Now
             </a>
           </div>
@@ -163,10 +180,12 @@ function Home() {
 
         {/* 6 */}
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/tetris.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Tetris</h5>
@@ -176,24 +195,26 @@ function Home() {
               <br />
               <br />
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
               Play Now
             </a>
           </div>
         </div>
       </div>
       <Footer />
-       {/* MODAL RANDOM SCORE */}
-        <Modal
-          isOpen={modal}
-          toggle={toggle}
-          modalTransition={{ timeout: 100 }}
-          style={{
-            width: 100
-          }}
-        >
-          <ModalBody>Win: {randomScoreWin} Lost: {randomScoreLost}</ModalBody>
-        </Modal>
+      {/* MODAL RANDOM SCORE */}
+      <Modal
+        isOpen={modal}
+        toggle={toggle}
+        modalTransition={{ timeout: 100 }}
+        style={{
+          width: 100,
+        }}
+      >
+        <ModalBody>
+          Win: {randomScoreWin} Lost: {randomScoreLost}
+        </ModalBody>
+      </Modal>
     </>
   );
 }

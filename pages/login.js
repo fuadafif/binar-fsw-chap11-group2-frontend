@@ -9,6 +9,9 @@ import style from "../styles/RegistLogin.module.css";
 import { useDispatch } from "react-redux";
 import { auth } from "../features/authSlice";
 
+import Image from "next/image";
+import Link from "next/link";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,10 +37,10 @@ function Login() {
   }
 
   const btnClick = () => {
-    const btn = document.getElementById('btn');
+    const btn = document.getElementById("btn");
     btn.innerHTML = "Processing";
-    btn.classList.add(style['active']);
-  }
+    btn.classList.add(style["active"]);
+  };
 
   return (
     <div className="vh-100 section-css">
@@ -48,16 +51,30 @@ function Login() {
             <div className={`card ${style["card-css"]}`}>
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
-                  <img src="/img/lorem-ipsum.png" alt="login form" className={`img-fluid ${style["img-f-css"]}`} />
+                  <Image
+                    src="/img/lorem-ipsum.png"
+                    alt="login form"
+                    className={`img-fluid ${style["img-f-css"]}`}
+                    height={800}
+                    width={500}
+                  />
                 </div>
-                <div className={`col-md-6 col-lg-7 d-flex align-items-center ${style.bg}`}>
+                <div
+                  className={`col-md-6 col-lg-7 d-flex align-items-center ${style.bg}`}
+                >
                   <div className="card-body p-4 p-lg-5 text-black">
                     <Form inline onSubmit={submit}>
                       <div className="d-flex align-items-center mb-3 pb-1">
-                        <i className={`fas fa-cubes fa-2x me-3 ${style["i-cubes-css"]}`}></i>
+                        <i
+                          className={`fas fa-cubes fa-2x me-3 ${style["i-cubes-css"]}`}
+                        ></i>
                         {/* <span className="h1 fw-bold mb-0"></span> */}
                       </div>
-                      <h2 className={`fw-normal mb-3 pb-3 ${style["sign-css"]}`}>Sign into your account</h2>
+                      <h2
+                        className={`fw-normal mb-3 pb-3 ${style["sign-css"]}`}
+                      >
+                        Sign into your account
+                      </h2>
                       <FormGroup>
                         <Label for="username" hidden>
                           E-mail / Username
@@ -65,7 +82,7 @@ function Login() {
                         <Input
                           value={username}
                           onChange={(event) => {
-                            setUsername(event.target.value)
+                            setUsername(event.target.value);
                           }}
                           type="text"
                           id="username"
@@ -79,7 +96,7 @@ function Login() {
                         </Label>
                         <Input
                           onChange={(event) => {
-                            setPassword(event.target.value)
+                            setPassword(event.target.value);
                           }}
                           type="password"
                           id="password"
@@ -88,32 +105,56 @@ function Login() {
                         />
                       </FormGroup>{" "}
                       <div className="pt-1 mb-4 d-grid gap-2">
-                        <Button className="btn-dark" type="submit" id="btn" onClick={btnClick}>
+                        <Button
+                          className="btn-dark"
+                          type="submit"
+                          id="btn"
+                          onClick={btnClick}
+                        >
                           Login
                         </Button>
                       </div>
-                      <a className={`small ${style["fgt-pss-css"]}`} href="/reset-password">
-                        Forgot password?
-                      </a>
-                      <p className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}>
-                        Don't have an account?{" "}
-                        <a href="/register" className={style["reg-css"]}>
-                          Register here
+                      <Link href="/reset-password">
+                        <a className={`small ${style["fgt-pss-css"]}`}>
+                          Forgot password?
                         </a>
+                      </Link>
+                      <p
+                        className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}
+                      >
+                        Don&apos;t have an account?{" "}
+                        <Link href="/register">
+                          <a className={style["reg-css"]}>Register here</a>
+                        </Link>
                       </p>
                       <hr />
                       <div className="text-center">
                         <p>or login with:</p>
                         <div className={style["social-links"]}>
-                          <a href="https://www.facebook.com/" type="button" className={`btn-lg fs-5 ${style.space}`}>
-                            <FaFacebookF />{" "}
-                          </a>
-                          <a href="https://twitter.com/" type="button" className={`btn-lg fs-5 ${style.space}`}>
-                            <FaTwitter />{" "}
-                          </a>
-                          <a href="https://www.google.com/" type="button" className={`btn-lg fs-5 ${style.space}`}>
-                            <FaGoogle />
-                          </a>
+                          <Link href="https://www.facebook.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaFacebookF />{" "}
+                            </a>
+                          </Link>
+                          <Link href="https://twitter.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaTwitter />{" "}
+                            </a>
+                          </Link>
+                          <Link href="https://www.google.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaGoogle />
+                            </a>
+                          </Link>
                         </div>
                       </div>
                     </Form>
