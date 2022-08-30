@@ -19,7 +19,7 @@ function Register() {
     event.preventDefault();
 
     try {
-      const result = await axios.post("https://teamt2-backend.herokuapp.com/register", {
+      const result = await axios.post("https://localhost:4000/register", {
         email: email,
         username: username,
         password: password,
@@ -48,30 +48,16 @@ function Register() {
             <div className={`card ${style["card-css"]}`}>
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
-                  <Image
-                    src="/img/lorem-ipsum.png"
-                    alt="register form"
-                    className={`img-fluid ${style["img-f-css"]}`}
-                    height={800}
-                    width={500}
-                  />
+                  <Image src="/img/lorem-ipsum.png" alt="register form" className={`img-fluid ${style["img-f-css"]}`} height={800} width={500} />
                 </div>
-                <div
-                  className={`col-md-6 col-lg-7 d-flex align-items-center ${style.bg}`}
-                >
+                <div className={`col-md-6 col-lg-7 d-flex align-items-center ${style.bg}`}>
                   <div className="card-body p-4 p-lg-5 text-black">
                     <Form inline onSubmit={submit}>
                       <div className="d-flex align-items-center mb-3 pb-1">
-                        <i
-                          className={`fas fa-cubes fa-2x me-3 ${style["i-cubes-css"]}`}
-                        ></i>
+                        <i className={`fas fa-cubes fa-2x me-3 ${style["i-cubes-css"]}`}></i>
                         {/* <span className="h1 fw-bold mb-0"></span> */}
                       </div>
-                      <h2
-                        className={`fw-normal mb-3 pb-3 ${style["sign-css"]}`}
-                      >
-                        Register your account
-                      </h2>
+                      <h2 className={`fw-normal mb-3 pb-3 ${style["sign-css"]}`}>Register your account</h2>
                       <FormGroup>
                         <Label for="username" hidden>
                           Username
@@ -131,18 +117,11 @@ function Register() {
                         />
                       </FormGroup>
                       <div className="pt-1 mb-4 d-grid gap-2">
-                        <Button
-                          id="btn"
-                          type="submit"
-                          className="btn-dark"
-                          onClick={btnClick}
-                        >
+                        <Button id="btn" type="submit" className="btn-dark" onClick={btnClick}>
                           Create Account
                         </Button>
                       </div>
-                      <p
-                        className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}
-                      >
+                      <p className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}>
                         Already have an account?{" "}
                         <Link href="/login">
                           <a className={style["reg-css"]}>Login here</a>
@@ -153,26 +132,17 @@ function Register() {
                         <p>or sign up with:</p>
                         <div className={style["social-links"]}>
                           <Link href="https://www.facebook.com/">
-                            <a
-                              type="button"
-                              className={`btn-lg fs-5 ${style.space}`}
-                            >
+                            <a type="button" className={`btn-lg fs-5 ${style.space}`}>
                               <FaFacebookF />{" "}
                             </a>
                           </Link>
                           <Link href="https://twitter.com/">
-                            <a
-                              type="button"
-                              className={`btn-lg fs-5 ${style.space}`}
-                            >
+                            <a type="button" className={`btn-lg fs-5 ${style.space}`}>
                               <FaTwitter />{" "}
                             </a>
                           </Link>
                           <Link href="https://www.google.com/">
-                            <a
-                              type="button"
-                              className={`btn-lg fs-5 ${style.space}`}
-                            >
+                            <a type="button" className={`btn-lg fs-5 ${style.space}`}>
                               <FaGoogle />
                             </a>
                           </Link>
