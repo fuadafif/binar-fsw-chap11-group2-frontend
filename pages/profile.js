@@ -10,11 +10,13 @@ function Profile() {
 
   const [post, setPost] = useState(null);
   const [modal, setModal] = useState(false);
+
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
 
   useEffect(() => {
     axios.get(`http://localhost:4000/biodata/${username}`).then((res) => {
+
       setPost({
         res: res.data,
       });
@@ -32,14 +34,14 @@ function Profile() {
     try {
       const result = await axios.post(`http://localhost:4000/biodata/update/${username}`, {
         email: email,
-        city: city,
-      });
-      alert(result.data.message);
-    } catch {
-      alert("Your email is already in use.");
-    }
-  };
 
+        city: city
+      });
+      alert(result.data.message)
+    } catch {
+      alert("Your email is already in use.")
+    }
+  }
   return (
     <div>
       <HomeNav />
@@ -89,13 +91,28 @@ function Profile() {
               <label htmlFor="email" className="form-label">
                 Email address
               </label>
-              <input type="email" className="form-control" id="email" aria-describedby="emailHelp" onChange={(e) => setEmail(e.target.value)} />
+
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                aria-describedby="emailHelp"
+                onChange={e => setEmail(e.target.value)}
+              />
+
             </div>
             <div className="mb-3">
               <label htmlFor="city" className="form-label">
                 City
               </label>
-              <input type="city" className="form-control" id="city" onChange={(e) => setCity(e.target.value)} />
+
+              <input
+                type="city"
+                className="form-control"
+                id="city"
+                onChange={e => setCity(e.target.value)}
+              />
+
             </div>
             <button type="submit" className="btn-sm btn btn-primary">
               Submit
