@@ -51,30 +51,16 @@ function Login() {
             <div className={`card ${style["card-css"]}`}>
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
-                  <Image
-                    src="/img/lorem-ipsum.png"
-                    alt="login form"
-                    className={`img-fluid ${style["img-f-css"]}`}
-                    height={800}
-                    width={500}
-                  />
+                  <Image src="/img/lorem-ipsum.png" alt="login form" className={`img-fluid ${style["img-f-css"]}`} height={800} width={500} />
                 </div>
-                <div
-                  className={`col-md-6 col-lg-7 d-flex align-items-center ${style.bg}`}
-                >
+                <div className={`col-md-6 col-lg-7 d-flex align-items-center ${style.bg}`}>
                   <div className="card-body p-4 p-lg-5 text-black">
                     <Form inline onSubmit={submit}>
                       <div className="d-flex align-items-center mb-3 pb-1">
-                        <i
-                          className={`fas fa-cubes fa-2x me-3 ${style["i-cubes-css"]}`}
-                        ></i>
+                        <i className={`fas fa-cubes fa-2x me-3 ${style["i-cubes-css"]}`}></i>
                         {/* <span className="h1 fw-bold mb-0"></span> */}
                       </div>
-                      <h2
-                        className={`fw-normal mb-3 pb-3 ${style["sign-css"]}`}
-                      >
-                        Sign into your account
-                      </h2>
+                      <h2 className={`fw-normal mb-3 pb-3 ${style["sign-css"]}`}>Sign into your account</h2>
                       <FormGroup>
                         <Label for="username" hidden>
                           E-mail / Username
@@ -105,23 +91,14 @@ function Login() {
                         />
                       </FormGroup>{" "}
                       <div className="pt-1 mb-4 d-grid gap-2">
-                        <Button
-                          className="btn-dark"
-                          type="submit"
-                          id="btn"
-                          onClick={btnClick}
-                        >
+                        <Button className="btn-dark" type="submit" id="btn" onClick={btnClick}>
                           Login
                         </Button>
                       </div>
                       <Link href="/reset-password">
-                        <a className={`small ${style["fgt-pss-css"]}`}>
-                          Forgot password?
-                        </a>
+                        <a className={`small ${style["fgt-pss-css"]}`}>Forgot password?</a>
                       </Link>
-                      <p
-                        className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}
-                      >
+                      <p className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}>
                         Don&apos;t have an account?{" "}
                         <Link href="/register">
                           <a className={style["reg-css"]}>Register here</a>
@@ -132,26 +109,17 @@ function Login() {
                         <p>or login with:</p>
                         <div className={style["social-links"]}>
                           <Link href="https://www.facebook.com/">
-                            <a
-                              type="button"
-                              className={`btn-lg fs-5 ${style.space}`}
-                            >
+                            <a type="button" className={`btn-lg fs-5 ${style.space}`}>
                               <FaFacebookF />{" "}
                             </a>
                           </Link>
                           <Link href="https://twitter.com/">
-                            <a
-                              type="button"
-                              className={`btn-lg fs-5 ${style.space}`}
-                            >
+                            <a type="button" className={`btn-lg fs-5 ${style.space}`}>
                               <FaTwitter />{" "}
                             </a>
                           </Link>
                           <Link href="https://www.google.com/">
-                            <a
-                              type="button"
-                              className={`btn-lg fs-5 ${style.space}`}
-                            >
+                            <a type="button" className={`btn-lg fs-5 ${style.space}`}>
                               <FaGoogle />
                             </a>
                           </Link>

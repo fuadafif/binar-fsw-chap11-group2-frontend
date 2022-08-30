@@ -10,12 +10,13 @@ function Profile() {
 
   const [post, setPost] = useState(null);
   const [modal, setModal] = useState(false);
-  const [email, setEmail] = useState('');
-  const [city, setCity] = useState('');
+
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/biodata/${username}`)
-    .then((res) => {
+    axios.get(`http://localhost:4000/biodata/${username}`).then((res) => {
+
       setPost({
         res: res.data,
       });
@@ -33,6 +34,7 @@ function Profile() {
     try {
       const result = await axios.post(`http://localhost:4000/biodata/update/${username}`, {
         email: email,
+
         city: city
       });
       alert(result.data.message)
@@ -40,7 +42,6 @@ function Profile() {
       alert("Your email is already in use.")
     }
   }
-
   return (
     <div>
       <HomeNav />
@@ -54,13 +55,7 @@ function Profile() {
                 height: 500,
               }}
             >
-              <Image
-                src="/img/profile.png"
-                className="card-img-top"
-                alt="profile"
-                height={500}
-                width={500}
-              />
+              <Image src="/img/profile.png" className="card-img-top" alt="profile" height={500} width={500} />
               <div className="card-body">
                 <h4 className="card-title">Profile</h4>
                 <div className="card-text">
@@ -73,7 +68,9 @@ function Profile() {
                     );
                   })}
                 </div>
-                <button className="btn btn-success btn-sm" onClick={toggle}>Update</button>
+                <button className="btn btn-success btn-sm" onClick={toggle}>
+                  Update
+                </button>
               </div>
             </div>
           </div>
@@ -94,6 +91,7 @@ function Profile() {
               <label htmlFor="email" className="form-label">
                 Email address
               </label>
+
               <input
                 type="email"
                 className="form-control"
@@ -101,17 +99,20 @@ function Profile() {
                 aria-describedby="emailHelp"
                 onChange={e => setEmail(e.target.value)}
               />
+
             </div>
             <div className="mb-3">
               <label htmlFor="city" className="form-label">
                 City
               </label>
+
               <input
                 type="city"
                 className="form-control"
                 id="city"
                 onChange={e => setCity(e.target.value)}
               />
+
             </div>
             <button type="submit" className="btn-sm btn btn-primary">
               Submit
