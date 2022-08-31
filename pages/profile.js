@@ -9,13 +9,15 @@ function Profile() {
   const { username } = useSelector((state) => state.auth);
 
   const [post, setPost] = useState(null);
-  const [modal, setModal] = useState(false);
-  const [email, setEmail] = useState('');
-  const [city, setCity] = useState('');
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
+  const [modalUpdate, setModalUpdate] = useState(false);
+  const [modalPic, setModalPic] = useState(false);
+  const [pic, setPic] = useState("/img/profile-2.jpg");
+  const [savePic, setSavePic] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/biodata/${username}`)
-    .then((res) => {
+    axios.get(`http://localhost:4000/biodata/${username}`).then((res) => {
       setPost({
         res: res.data,
       });
@@ -25,21 +27,37 @@ function Profile() {
 
   if (!post) return null;
 
-  const toggle = () => {
-    setModal(!modal);
+  const toggleUpdate = () => {
+    setModalUpdate(!modalUpdate);
   };
 
-  const updateProfile = async () => {
+  const updateProfile = async (e) => {
+    e.preventDefault();
     try {
-      const result = await axios.post(`http://localhost:4000/biodata/update/${username}`, {
-        email: email,
-        city: city
-      });
-      alert(result.data.message)
+      const result = await axios.post(
+        `http://localhost:4000/biodata/update/${username}`,
+        {
+          email: email,
+          city: city,
+        }
+      );
+      alert(result.data.message);
+      window.location.reload();
     } catch {
-      alert("Your email is already in use.")
+      alert("Your email is already in use.");
     }
-  }
+  };
+
+  const togglePic = () => {
+    setModalPic(!modalPic);
+  };
+
+  const handleUploadChange = (e) => {
+    console.log(e.target.files[0]);
+    let uploaded = e.target.files[0];
+    setPic(URL.createObjectURL(uploaded));
+    setSavePic(uploaded);
+  };
 
   return (
     <div>
@@ -55,12 +73,15 @@ function Profile() {
               }}
             >
               <Image
-                src="/img/profile.png"
+                src="/img/profile-2.jpg"
                 className="card-img-top"
                 alt="profile"
                 height={500}
                 width={500}
               />
+              <button className="btn btn-sm btn-light" onClick={togglePic}>
+                Upload Photo
+              </button>
               <div className="card-body">
                 <h4 className="card-title">Profile</h4>
                 <div className="card-text">
@@ -73,7 +94,12 @@ function Profile() {
                     );
                   })}
                 </div>
-                <button className="btn btn-success btn-sm" onClick={toggle}>Update</button>
+                <button
+                  className="btn btn-success btn-sm"
+                  onClick={toggleUpdate}
+                >
+                  Update
+                </button>
               </div>
             </div>
           </div>
@@ -81,8 +107,8 @@ function Profile() {
       </div>
       {/* MODAL RANDOM SCORE */}
       <Modal
-        isOpen={modal}
-        toggle={toggle}
+        isOpen={modalUpdate}
+        toggle={toggleUpdate}
         modalTransition={{ timeout: 100 }}
         style={{
           width: 500,
@@ -99,7 +125,7 @@ function Profile() {
                 className="form-control"
                 id="email"
                 aria-describedby="emailHelp"
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -110,13 +136,56 @@ function Profile() {
                 type="city"
                 className="form-control"
                 id="city"
-                onChange={e => setCity(e.target.value)}
+                onChange={(e) => setCity(e.target.value)}
               />
             </div>
             <button type="submit" className="btn-sm btn btn-primary">
               Submit
             </button>
           </form>
+        </ModalBody>
+      </Modal>
+      {/* MODAL RANDOM SCORE */}
+      <Modal
+        isOpen={modalPic}
+        toggle={togglePic}
+        modalTransition={{ timeout: 100 }}
+        style={{
+          width: 500,
+        }}
+      >
+        <ModalBody>
+          <div
+            style={{ height: "80vh" }}
+            className="d-flex justify-content-center align-items-center"
+          >
+            <div className="mt-5 mx-auto">
+              <div>
+                <Image
+                  src={pic}
+                  className="img-thumbnail"
+                  alt=""
+                  height={300}
+                  width={300}
+                />
+              </div>
+              <div className="my-3">
+                <label htmlFor="formFile" className="form-label">
+                  Upload Image here
+                </label>
+                <input
+                  type="file"
+                  className="form-control form-control-sm"
+                  id="formFile"
+                  accept="image/*"
+                  onChange={handleUploadChange}
+                ></input>
+                <button className="btn btn-primary btn-sm w-100 mt-2">
+                  Save my photo
+                </button>
+              </div>
+            </div>
+          </div>
         </ModalBody>
       </Modal>
     </div>
