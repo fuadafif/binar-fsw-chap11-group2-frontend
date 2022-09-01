@@ -59,6 +59,26 @@ function Profile() {
     setSavePic(uploaded);
   };
 
+  const uploadPic = async () => {
+    if (!savePic) {
+      alert("No file selected");
+    } else {
+      const config = {
+        headers: { "content-type": "multipart/form-data" },
+      };
+
+      let formData = new FormData();
+      formData.append("file", savePic);
+      await axios
+        .post(`http://localhost:4000/upload/${username}`, formData, config)
+        .then((res) => {
+          console.log(res.data);
+          alert(res.data.message);
+          window.location.reload();
+        });
+    }
+  };
+
   return (
     <div>
       <HomeNav />
@@ -72,13 +92,19 @@ function Profile() {
                 height: 500,
               }}
             >
-              <Image
-                src="/img/profile-2.jpg"
-                className="card-img-top"
-                alt="profile"
-                height={500}
-                width={500}
-              />
+              {post.res.map((user, idx) => {
+                return (
+                  <Image
+                    key={idx}
+                    src={user.picture}
+                    className="card-img-top"
+                    alt="profile"
+                    height={500}
+                    width={500}
+                  />
+                );
+              })}
+
               <button className="btn btn-sm btn-light" onClick={togglePic}>
                 Upload Photo
               </button>
@@ -180,7 +206,10 @@ function Profile() {
                   accept="image/*"
                   onChange={handleUploadChange}
                 ></input>
-                <button className="btn btn-primary btn-sm w-100 mt-2">
+                <button
+                  onClick={uploadPic}
+                  className="btn btn-primary btn-sm w-100 mt-2"
+                >
                   Save my photo
                 </button>
               </div>
