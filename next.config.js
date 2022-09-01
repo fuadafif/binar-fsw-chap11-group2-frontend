@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["api.elements.buildwithangga.com"]
+    domains: ["api.elements.buildwithangga.com", "res.cloudinary.com"]
   }
 }
 module.exports = nextConfig
