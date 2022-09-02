@@ -21,18 +21,22 @@ function Login() {
 
   async function submit(event) {
     event.preventDefault();
-
-    try {
-      const result = await axios.post("http://localhost:4000/login", {
-        username: username,
-        password: password,
-      });
-      dispatch(auth({ username }));
-      alert(result.data.message);
-      router.push("/");
-    } catch (err) {
-      alert("You don't have an account, create your account");
+    if (!username || !password) {
+      alert("Can not be empty!");
       window.location.reload();
+    } else {
+      try {
+        const result = await axios.post("http://localhost:4000/login", {
+          username: username,
+          password: password,
+        });
+        dispatch(auth({ username }));
+        alert(result.data.message);
+        router.push("/");
+      } catch (err) {
+        alert("You don't have an account, create your account");
+        window.location.reload();
+      }
     }
   }
 

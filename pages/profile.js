@@ -33,18 +33,22 @@ function Profile() {
 
   const updateProfile = async (e) => {
     e.preventDefault();
-    try {
-      const result = await axios.post(
-        `http://localhost:4000/biodata/update/${username}`,
-        {
-          email: email,
-          city: city,
-        }
-      );
-      alert(result.data.message);
-      window.location.reload();
-    } catch {
-      alert("Your email is already in use.");
+    if (!email || !city) {
+      alert("Can not be empty!");
+    } else {
+      try {
+        const result = await axios.post(
+          `http://localhost:4000/biodata/update/${username}`,
+          {
+            email: email,
+            city: city,
+          }
+        );
+        alert(result.data.message);
+        window.location.reload();
+      } catch {
+        alert("Your email is already in use.");
+      }
     }
   };
 
