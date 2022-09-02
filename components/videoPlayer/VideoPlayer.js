@@ -2,13 +2,14 @@ import React, { useRef, useState } from "react";
 import ReactPlayer from "react-player";
 
 const sources = {
-  sintelTrailer: "www.youtube.com/455847a0-ab8a-43a8-b9c2-9b238bfa892f",
+  tournament:
+    "https://www.youtube.com/watch?v=qjTdZdgDH_A&ab_channel=LoLEsports",
 };
 
 const Video = (props) => {
   const ref = useRef();
 
-  const [source, setSource] = useState(sources.bunnyMovie);
+  const [source, setSource] = useState(sources.tournament);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(false);
 
@@ -19,12 +20,24 @@ const Video = (props) => {
 
   return (
     <div>
-      <ReactPlayer ref={ref} url={source} playing={playing} muted={muted} />
+      <div className={"mx-auto p-0 position-relative col-lg-6"}>
+        <ReactPlayer
+          ref={ref}
+          url={source}
+          playing={playing}
+          muted={muted}
+          unmute={unmute}
+        />
+      </div>
 
-      <button onClick={play}>Play</button>
-      <button onClick={pause}>Pause</button>
-      <button onClick={mute}>Mute</button>
-      <button onClick={unmute}>Unmute</button>
+      <br />
+
+      <div>
+        <button onClick={play}>Play</button>
+        <button onClick={pause}>Pause</button>
+        <button onClick={mute}>Mute</button>
+        <button onClick={unmute}>Unmute</button>
+      </div>
     </div>
   );
 };

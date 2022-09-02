@@ -1,4 +1,4 @@
-import { Form, FormGroup, Label, Col, Input, Card, CardImg } from "reactstrap";
+import { Form, FormGroup, Button, Col, Input, Card, CardImg } from "reactstrap";
 import Image from "next/image";
 
 // import component
@@ -98,7 +98,9 @@ export default function Home() {
             <div>
               <h1>Paris International Tournament</h1>
               <p>August 2022</p>
-              <VideoPlayer />
+              <div>
+                <VideoPlayer />
+              </div>
             </div>
             {/* end of player experience */}
           </div>
@@ -221,28 +223,70 @@ export default function Home() {
         {/* end of game exparience */}
 
         {/* contact */}
-        {/* <div className={"text-center"}>
-          <h4>Get in Touch</h4>
+        <div
+          className={`container-xxl mx-auto p-0 position-relative text-center ${style["content-2-4"]}`}
+        >
+          <h1>Get in Touch</h1>
           <p>
             Sed ac mattis justo. Vestibulum facilisis at arcu ac porta. Vivamus
             at ipsum at quam hendrerit gravida.
           </p>
 
-          <hr />
+          <br />
 
           <Form>
+            {/* insert name */}
             <FormGroup row>
-              <Col sm={10}>
+              <Col sm={4}>
                 <Input
-                  id="exampleEmail"
+                  id="name"
+                  type="text"
                   name="name"
-                  placeholder="Name"
+                  placeholder="Insert your name here"
+                />
+              </Col>
+            </FormGroup>
+
+            {/* insert e-mail */}
+            <FormGroup row>
+              <Col sm={4}>
+                <Input
                   type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Insert your e-mail here"
+                  required
+                />
+              </Col>
+            </FormGroup>
+
+            {/* insert massage */}
+            <FormGroup row>
+              <Col sm={4}>
+                <textarea
+                  className="form-control br-b"
+                  name="message"
+                  id="message"
+                  placeholder="Message..."
                 />
               </Col>
             </FormGroup>
           </Form>
-        </div> */}
+
+          {/* submit button */}
+          <FormGroup row>
+            <Col sm={4}>
+              <Button
+                className="btn-dark"
+                type="submit"
+                id="btn"
+                // onClick={btnClick}
+              >
+                Submit
+              </Button>
+            </Col>
+          </FormGroup>
+        </div>
         {/* end of contact */}
 
         {/* footer */}
