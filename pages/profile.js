@@ -4,6 +4,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { Modal, ModalBody } from "reactstrap";
+import style from "../styles/Profile.module.css";
 
 function Profile() {
   const { username } = useSelector((state) => state.auth);
@@ -33,18 +34,22 @@ function Profile() {
 
   const updateProfile = async (e) => {
     e.preventDefault();
-    try {
-      const result = await axios.post(
-        `http://localhost:4000/biodata/update/${username}`,
-        {
-          email: email,
-          city: city,
-        }
-      );
-      alert(result.data.message);
-      window.location.reload();
-    } catch {
-      alert("Your email is already in use.");
+    if (!email || !city) {
+      alert("Can not be empty!");
+    } else {
+      try {
+        const result = await axios.post(
+          `http://localhost:4000/biodata/update/${username}`,
+          {
+            email: email,
+            city: city,
+          }
+        );
+        alert(result.data.message);
+        window.location.reload();
+      } catch {
+        alert("Your email is already in use.");
+      }
     }
   };
 
@@ -82,7 +87,7 @@ function Profile() {
   return (
     <div>
       <HomeNav />
-      <div>
+      <div className={style['background']}>
         <div className="position-relative">
           <div className="position-absolute start-50 translate-middle-x mt-5">
             <div

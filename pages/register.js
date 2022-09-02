@@ -17,19 +17,23 @@ function Register() {
 
   async function submit(event) {
     event.preventDefault();
-
-    try {
-      const result = await axios.post("http://localhost:4000/register", {
-        email: email,
-        username: username,
-        password: password,
-        city: city,
-      });
-      alert(result.data.message);
-      router.push("/login");
-    } catch (err) {
-      alert("Your email or username is already in use.");
+    if (!username || !email || !password || !city) {
+      alert("Can not be empty!");
       window.location.reload();
+    } else {
+      try {
+        const result = await axios.post("http://localhost:4000/register", {
+          email: email,
+          username: username,
+          password: password,
+          city: city,
+        });
+        alert(result.data.message);
+        router.push("/login");
+      } catch (err) {
+        alert("Your email or username is already in use.");
+        window.location.reload();
+      }
     }
   }
 
