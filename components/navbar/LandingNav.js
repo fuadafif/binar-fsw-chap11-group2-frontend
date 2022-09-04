@@ -76,7 +76,7 @@ function LandingNav() {
 
           <NavItem>
             <NavLink className={style.link} href="/home" activeStyle>
-              Let`s Play
+              Let&#39;s Play
             </NavLink>
           </NavItem>
         </Nav>
