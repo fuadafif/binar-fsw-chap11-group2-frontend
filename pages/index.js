@@ -26,8 +26,8 @@ export default function Home() {
       </div>
       {/* end of header */}
 
-      {/* game exparience */}
-      <div className={style.main}>
+      {/* Reasons */}
+      <div id="reasons" className={style.main}>
         <div
           className={`container-xxl mx-auto p-0 position-relative ${style["content-2-4"]}`}
         >
@@ -91,11 +91,12 @@ export default function Home() {
                 </p>
               </div>
             </div>
+            {/* end of about */}
 
             <hr />
 
             {/* player experience */}
-            <div>
+            <div id="playerexp">
               <h1>Paris International Tournament</h1>
               <p>August 2022</p>
               <div>
@@ -106,7 +107,7 @@ export default function Home() {
           </div>
 
           {/* about us */}
-          <div className={style["card-block"]}>
+          <div id="aboutus" className={style["card-block"]}>
             <div className={style.card}>
               <div className="d-flex flex-lg-row flex-column align-items-center">
                 <div className="me-lg-3">
@@ -224,6 +225,7 @@ export default function Home() {
 
         {/* contact */}
         <div
+          id="contact"
           className={`container-xxl mx-auto p-0 position-relative text-center ${style["content-2-4"]}`}
         >
           <h1>Get in Touch</h1>
