@@ -27,7 +27,7 @@ export default function Home() {
       {/* end of header */}
 
       {/* Reasons */}
-      <div id="reasons" className={style.main}>
+      <div id="playerexp" className={style.main}>
         <div
           className={`container-xxl mx-auto p-0 position-relative ${style["content-2-4"]}`}
         >
@@ -96,7 +96,7 @@ export default function Home() {
             <hr />
 
             {/* player experience */}
-            <div id="playerexp">
+            <div>
               <h1>Paris International Tournament</h1>
               <p>August 2022</p>
               <div>

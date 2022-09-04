@@ -3,12 +3,12 @@ import { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
 import { useRouter } from "next/router";
-import RegistLoginNav from "../components/navbar/RegistLoginNav";
+import LandingNav from "/components/navbar/LandingNav";
 import style from "../styles/RegistLogin.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-function Register() {
+export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,7 +45,7 @@ function Register() {
 
   return (
     <div className="vh-100 section-css">
-      <RegistLoginNav />
+      <LandingNav />
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
@@ -193,5 +193,3 @@ function Register() {
     </div>
   );
 }
-
-export default Register;

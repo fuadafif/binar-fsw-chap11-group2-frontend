@@ -3,9 +3,9 @@ import style from "../../styles/Navbar.module.css";
 import DropdownButton from "../dropdown/Dropdown";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Image from 'next/image';
+import Image from "next/image";
 
-function HomeNav() {
+export default function HomeNav() {
   const { username } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -27,43 +27,30 @@ function HomeNav() {
 
   return (
     <>
-      {/* Navbar */}
+      {/* navigation bar */}
       <Navbar className={style.navbar} color="dark" dark>
-        {/* NavBrand */}
+        {/* brand */}
         <NavbarBrand href="/">
-          <Image
-            alt="logo"
-            src="/img/gaming.jpg"
-            height={50}
-            width={50}
-          />
+          <Image alt="logo" src="/img/gaming.jpg" height={50} width={50} />
         </NavbarBrand>
-        {/* Nav */}
+        {/* end of brand */}
+
+        {/* navigation menu */}
         <Nav>
           <NavItem>
-            <NavLink
-              className={style.link}
-              href="/home"
-              activeStyle
-            >
+            <NavLink className={style.link} href="/home" activeStyle>
               Home
             </NavLink>
           </NavItem>
+
           <NavItem>
-            <NavLink
-              className={style.link}
-              href="/game-list"
-              activeStyle
-            >
+            <NavLink className={style.link} href="/game-list" activeStyle>
               Game List
             </NavLink>
           </NavItem>
+
           <NavItem>
-            <NavLink
-              className={style.link}
-              href="/players"
-              activeStyle
-            >
+            <NavLink className={style.link} href="/players" activeStyle>
               Players
             </NavLink>
           </NavItem>
@@ -71,14 +58,11 @@ function HomeNav() {
 
         <Nav>
           <NavItem hidden id="login">
-            <NavLink
-              className={style.link}
-              href="/login"
-              activeStyle
-            >
+            <NavLink className={style.link} href="/login" activeStyle>
               Login
             </NavLink>
           </NavItem>
+
           <NavItem hidden id="register">
             <NavLink
               className={(style.link, style.signup)}
@@ -96,12 +80,13 @@ function HomeNav() {
               href="/profile"
               activeStyle
             ></NavLink>
+
             <DropdownButton />
           </NavItem>
         </Nav>
+        {/* end of navigation menu */}
       </Navbar>
+      {/* end of navigation bar */}
     </>
   );
 }
-
-export default HomeNav;

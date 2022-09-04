@@ -3,7 +3,7 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
 import { useRouter } from "next/router";
 import axios from "axios";
-import RegistLoginNav from "../components/navbar/RegistLoginNav";
+import LandingNav from "/components/navbar/LandingNav";
 import style from "../styles/RegistLogin.module.css";
 
 import { useDispatch } from "react-redux";
@@ -48,7 +48,7 @@ function Login() {
 
   return (
     <div className="vh-100 section-css">
-      <RegistLoginNav />
+      <LandingNav />
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
