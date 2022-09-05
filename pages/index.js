@@ -41,7 +41,10 @@ export default function Home() {
           </div>
           <div className={`text-center ${style["grid-padding"]}`}>
             <div className="row">
-              <div className={`col-lg-4 ${style.column}`}>
+              <div
+                data-aos="fade-right"
+                data-aos-delay="1000"
+                className={`col-lg-4 ${style.column}`}>
                 <div className={style.icon}>
                   <Image
                     src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-11.png"
@@ -58,7 +61,10 @@ export default function Home() {
                   <br />
                 </p>
               </div>
-              <div className={`col-lg-4 ${style.column}`}>
+              <div
+                data-aos="fade-up"
+                data-aos-delay="800"
+                className={`col-lg-4 ${style.column}`}>
                 <div className={style.icon}>
                   <Image
                     src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-12.png"
@@ -74,7 +80,10 @@ export default function Home() {
                   you will get a smooth gaming experience
                 </p>
               </div>
-              <div className={`col-lg-4 ${style.column}`}>
+              <div
+                data-aos="fade-left"
+                data-aos-delay="1000"
+                className={`col-lg-4 ${style.column}`}>
                 <div className={style.icon}>
                   <Image
                     src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-13.png"
@@ -96,8 +105,8 @@ export default function Home() {
             <hr />
 
             {/* player experience */}
-            <div>
-              <h1>Paris International Tournament</h1>
+            <div className={style.white} >
+              <h1 className="animate__animated animate__bounce">Paris International Tournament</h1>
               <p>August 2022</p>
               <div>
                 <VideoPlayer />
@@ -138,23 +147,27 @@ export default function Home() {
               <hr />
 
               {/* our team */}
-              <div>
+              <div className={style.white}>
                 <h1 className={"text-center"}>Our Team</h1>
                 <div className={`text-center ${style["grid-padding"]}`}>
                   <div className="row">
                     {/* member 01 */}
-                    <div className={`col-lg-4 ${style.column}`}>
-                      <div>
+                    <div
+                      className={`col-lg-4 ${style.column}`}>
+                      <div
+                        data-aos="flip-right"
+                        data-aos-delay="1500">
                         <Image
+
                           src="/img/member-01.jpg"
                           alt="member-01"
                           width={300}
                           height={400}
                         />
                         <div>
-                          <h5>MICHAEL ROOF</h5>
+                          <h5 className={style.CoFounder}>MICHAEL ROOF</h5>
                           <p>Co-founder &amp; Designer</p>
-                          <p>
+                          <p className={style["card-caption"]}>
                             We’ll etch your brand onto tangible objects:
                             business cards, ads, stickers, brochures, you name
                             it. You won’t see business cards, ads, stickers,
@@ -168,7 +181,9 @@ export default function Home() {
 
                     {/* member 02 */}
                     <div className={`col-lg-4 ${style.column}`}>
-                      <div>
+                      <div
+                        data-aos="flip-up"
+                        data-aos-delay="1500">
                         <Image
                           src="/img/member-02.jpg"
                           alt="member-02"
@@ -176,9 +191,9 @@ export default function Home() {
                           height={400}
                         />
                         <div>
-                          <h5>CHARLES WHITE</h5>
+                          <h5 className={style.CoFounder}>CHARLES WHITE</h5>
                           <p>Co-founder &amp; Designer</p>
-                          <p>
+                          <p className={style["card-caption"]}>
                             We’ll etch your brand onto tangible objects:
                             business cards, ads, stickers, brochures, you name
                             it. You won’t see business cards, ads, stickers,
@@ -192,7 +207,9 @@ export default function Home() {
 
                     {/* member 03 */}
                     <div className={`col-lg-4 ${style.column}`}>
-                      <div>
+                      <div
+                        data-aos="flip-left"
+                        data-aos-delay="1500">
                         <Image
                           src="/img/member-03.jpg"
                           alt="member-03"
@@ -200,9 +217,9 @@ export default function Home() {
                           height={400}
                         />
                         <div>
-                          <h5>MARTIN CAMBRIGE</h5>
+                          <h5 className={style.CoFounder}>MARTIN CAMBRIGE</h5>
                           <p>Co-founder &amp; Designer</p>
-                          <p>
+                          <p className={style["card-caption"]}>
                             We’ll etch your brand onto tangible objects:
                             business cards, ads, stickers, brochures, you name
                             it. You won’t see business cards, ads, stickers,
@@ -224,73 +241,68 @@ export default function Home() {
         {/* end of game exparience */}
 
         {/* contact */}
-        <div
-          id="contact"
-          className={`container-xxl mx-auto p-0 position-relative text-center ${style["content-2-4"]}`}
-        >
-          <h1>Get in Touch</h1>
-          <p>
-            Sed ac mattis justo. Vestibulum facilisis at arcu ac porta. Vivamus
-            at ipsum at quam hendrerit gravida.
-          </p>
+        <div id="contact" className={`container ${style.contacts}`} >
+          <div className={style.white}>
+            <h1>Get in Touch</h1>
+            <p>
+              Sed ac mattis justo. Vestibulum facilisis at arcu ac porta. Vivamus
+              at ipsum at quam hendrerit gravida.
+            </p>
+          </div>
 
-          <br />
+          <div className={style.columnYa}>
+            <Form >
+              {/* insert name */}
+              <FormGroup >
+                <Col>
+                  <Input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Insert your name here"
+                  />
+                </Col>
+              </FormGroup>
+              {/* insert e-mail */}
+              <FormGroup >
+                <Col >
+                  <Input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Insert your e-mail here"
+                    required
+                  />
+                </Col>
+              </FormGroup>
 
-          <Form>
-            {/* insert name */}
+              {/* insert massage */}
+              <FormGroup >
+                <Col >
+                  <textarea
+                    className="form-control br-b"
+                    name="message"
+                    id="message"
+                    placeholder="Message..."
+                  />
+                </Col>
+              </FormGroup>
+            </Form>
+            {/* submit button */}
             <FormGroup row>
-              <Col sm={4}>
-                <Input
-                  id="name"
-                  type="text"
-                  name="name"
-                  placeholder="Insert your name here"
-                />
-              </Col>
-            </FormGroup>
-
-            {/* insert e-mail */}
-            <FormGroup row>
-              <Col sm={4}>
-                <Input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Insert your e-mail here"
-                  required
-                />
-              </Col>
-            </FormGroup>
-
-            {/* insert massage */}
-            <FormGroup row>
-              <Col sm={4}>
-                <textarea
-                  className="form-control br-b"
-                  name="message"
-                  id="message"
-                  placeholder="Message..."
-                />
-              </Col>
-            </FormGroup>
-          </Form>
-
-          {/* submit button */}
-          <FormGroup row>
-            <Col sm={4}>
-              <Button
-                className="btn-dark"
-                type="submit"
-                id="btn"
+              <Col>
+                <Button
+                  className="btn-dark m-3"
+                  type="submit"
+                  id="btn"
                 // onClick={btnClick}
-              >
-                Submit
-              </Button>
-            </Col>
-          </FormGroup>
+                >
+                  Submit </Button>
+              </Col>
+            </FormGroup>
+          </div>
+          {/* end of contact */}
         </div>
-        {/* end of contact */}
-
         {/* footer */}
         <Footer />
         {/* end of footer */}

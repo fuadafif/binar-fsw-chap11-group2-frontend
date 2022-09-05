@@ -48,7 +48,9 @@ function Home() {
       </div>
       <div className={style["container-fluid"]}>
         {/* 1 */}
-        <div className={`card ${style.game}`}>
+        <div data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+          className={`card ${style.game}`}>
           <Image
             src="/img/home/rock-paper-scissors.jpg"
             className={`card-img-top ${style["img-game"]}`}
@@ -82,7 +84,10 @@ function Home() {
 
         {/* 2 */}
 
-        <div className={`card ${style.game}`}>
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+          className={`card ${style.game}`}>
           <Image
             src="/img/home/snake-game.jpg"
             className={`card-img-top ${style["img-game"]}`}
@@ -92,7 +97,7 @@ function Home() {
           />
           <div className="card-body  d-flex flex-column">
             <h5 className="card-title">Snake</h5>
-            <p className="card-text">
+            <p className="card-text ">
               The player controls a long, thin creature, resembling a snake,
               which roams around on a bordered plane, picking up food, trying to
               avoid hitting its own tail or the edges of the playing area. Each
@@ -107,7 +112,10 @@ function Home() {
 
         {/* 3 */}
 
-        <div className={`card ${style.game}`}>
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+          className={`card ${style.game}`}>
           <Image
             src="/img/home/chess.jpg"
             className={`card-img-top ${style["img-game"]}`}
@@ -115,7 +123,10 @@ function Home() {
             width={500}
             height={300}
           />
-          <div className="card-body d-flex flex-column">
+          <div
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+            className="card-body d-flex flex-column data-aos= fade-left">
             <h5 className="card-title">Chess</h5>
             <p className="card-text">
               Chess is one of the oldest and most popular board games. It is
@@ -131,7 +142,10 @@ function Home() {
 
         {/* 4 */}
 
-        <div className={`card ${style.game}`}>
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+          className={`card ${style.game}`}>
           <Image
             src="/img/home/solitaire.jpg"
             className={`card-img-top ${style["img-game"]}`}
@@ -155,7 +169,10 @@ function Home() {
         </div>
 
         {/* 5 */}
-        <div className={`card ${style.game}`}>
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+          className={`card ${style.game}`}>
           <Image
             src="/img/home/ctr.jpg"
             className={`card-img-top ${style["img-game"]}`}
@@ -179,7 +196,10 @@ function Home() {
         </div>
 
         {/* 6 */}
-        <div className={`card ${style.game}`}>
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+          className={`card ${style.game}`}>
           <Image
             src="/img/home/tetris.jpg"
             className={`card-img-top ${style["img-game"]}`}

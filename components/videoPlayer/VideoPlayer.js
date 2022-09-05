@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 
 const sources = {
   tournament:
-    "https://www.youtube.com/watch?v=qjTdZdgDH_A&ab_channel=LoLEsports",
+    "https://res.cloudinary.com/project-nugie/video/upload/v1662393555/Paris_Aftermovie_-_2017_Summer_EU_LCS_Finals_rwckhv.mkv",
 };
 
 const Video = (props) => {

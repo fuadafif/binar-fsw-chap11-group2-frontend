@@ -114,3 +114,30 @@
 .content-2-4 .grid-padding {
     padding: 0rem 1rem 3rem;
 }
+
+.white {
+    color: #ffffff;
+}
+
+.contacts {
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.columnYa {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.submitForm {
+    text-align: center;
+}
+
+.CoFounder {
+    letter-spacing: 3px;
+}
