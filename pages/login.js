@@ -26,7 +26,7 @@ function Login() {
       window.location.reload();
     } else {
       try {
-        const result = await axios.post("http://localhost:4000/login", {
+        const result = await axios.post("https://team2-chapter11-backend.herokuapp.com/login", {
           username: username,
           password: password,
         });

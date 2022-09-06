@@ -18,7 +18,7 @@ function Profile() {
   const [savePic, setSavePic] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/biodata/${username}`).then((res) => {
+    axios.get(`https://team2-chapter11-backend.herokuapp.com/${username}`).then((res) => {
       setPost({
         res: res.data,
       });
@@ -39,7 +39,7 @@ function Profile() {
     } else {
       try {
         const result = await axios.post(
-          `http://localhost:4000/biodata/update/${username}`,
+          `https://team2-chapter11-backend.herokuapp.com/${username}`,
           {
             email: email,
             city: city,
