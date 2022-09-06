@@ -22,7 +22,7 @@ export default function Register() {
       window.location.reload();
     } else {
       try {
-        const result = await axios.post("http://localhost:4000/register", {
+        const result = await axios.post("https://team2-chapter11-backend.herokuapp.com/register", {
           email: email,
           username: username,
           password: password,
