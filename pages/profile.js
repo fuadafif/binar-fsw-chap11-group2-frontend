@@ -18,7 +18,7 @@ function Profile() {
   const [savePic, setSavePic] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://team2-chapter11-backend.herokuapp.com/${username}`).then((res) => {
+    axios.get(`https://team2-chapter11-backend.herokuapp.com/biodata/${username}`).then((res) => {
       setPost({
         res: res.data,
       });
@@ -39,7 +39,7 @@ function Profile() {
     } else {
       try {
         const result = await axios.post(
-          `https://team2-chapter11-backend.herokuapp.com/${username}`,
+          `https://team2-chapter11-backend.herokuapp.com/biodata/update/${username}`,
           {
             email: email,
             city: city,
@@ -75,7 +75,7 @@ function Profile() {
       let formData = new FormData();
       formData.append("file", savePic);
       await axios
-        .post(`http://localhost:4000/upload/${username}`, formData, config)
+        .post(`https://team2-chapter11-backend.herokuapp.com/upload/${username}`, formData, config)
         .then((res) => {
           console.log(res.data);
           alert(res.data.message);
